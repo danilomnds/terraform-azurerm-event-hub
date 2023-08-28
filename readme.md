@@ -9,7 +9,7 @@ Module developed to standardize the EventHub namespace and Hub creation.
 
 | Module Version | Terraform Version | AzureRM Version |
 |----------------|-------------------| --------------- |
-| v1.0.0         | v1.5.2            | 3.63.0          |
+| v1.0.0         | v1.5.6            | 3.71.0          |
 
 ## Specifying a version
 
@@ -77,7 +77,7 @@ output "evh_hubs" {
 | network_rulesets | block as defined below | `object()` | n/a | No |
 | local_authentication_enabled | is sas authentication enabled for the eventhub namespace | `bool` | `true` | No |
 | public_network_access_enabled | is public network access enabled for the eventhub namespace | `bool` | `false` | No |
-| minimum_tls_version | the minimum supported tls version for this eventhub namespace | `bool` | `false` | No |
+| minimum_tls_version | the minimum supported tls version for this eventhub namespace | `number` | `1.2` | No |
 | hubs_parameters | hubs specifications | `object` | `{}` | No |
 | azure_ad_groups | list of azure AD groups that will be granted the Reader role  | `list` | `[]` | No |
 | eventhub_custom_role | Allows the Event Hub owner to get write and delete the keys on eventhub only | `bool` | `true` | No |
