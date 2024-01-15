@@ -9,7 +9,7 @@ Module developed to standardize the EventHub namespace and Hub creation.
 
 | Module Version | Terraform Version | AzureRM Version |
 |----------------|-------------------| --------------- |
-| v1.0.0         | v1.5.6            | 3.71.0          |
+| v1.0.0         | v1.6.6            | 3.86.0          |
 
 ## Specifying a version
 
@@ -22,7 +22,7 @@ Note: The `?ref=***` refers a tag on the git module repo.
 
 ```hcl
 module "<evhns-name>" {
-  source = "git::https://github.com/danilomnds/terraform-azurerm-event-hub?ref=v1.0.0"
+  source = "git::https://github.com/danilomnds/terraform-azurerm-event-hub?ref=v1.1.0"
   name = "<evhns-name>"
   location = "<location>"
   resource_group_name  = "<resource-group-name>"
@@ -53,7 +53,6 @@ output "evhns_name" {
 output "evhns_id" {
   value = module.<evhns-name>.id
 }
-
 output "evh_hubs" {
   value = module.<evhns-name>.hubs
 }

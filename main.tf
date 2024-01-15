@@ -23,14 +23,14 @@ resource "azurerm_eventhub_namespace" "eventhub_ns" {
       public_network_access_enabled  = lookup(network_rulesets.value, "public_network_access_enabled", false)
       trusted_service_access_enabled = lookup(network_rulesets.value, "trusted_service_access_enabled", true)
       dynamic "ip_rule" {
-        for_each = network_rulesets.value.ip_rule
+        for_each = network_rulesets.value.ip_rule != null ? [network_rulesets.value.ip_rule] : []
         content {
           action  = "Allow"
           ip_mask = ip_rule.value.ip_mask
         }
       }
       dynamic "virtual_network_rule" {
-        for_each = network_rulesets.value.virtual_network_rule
+        for_each = network_rulesets.value.virtual_network_rule != null ? [network_rulesets.value.virtual_network_rule] : []
         content {          
           ignore_missing_virtual_network_service_endpoint = virtual_network_rule.value.ignore_missing_virtual_network_service_endpoint
           subnet_id                                       = virtual_network_rule.value.subnet_id
