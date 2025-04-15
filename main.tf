@@ -13,8 +13,7 @@ resource "azurerm_eventhub_namespace" "eventhub_ns" {
       identity_ids = identity.value.identity_ids
     }
   }
-  maximum_throughput_units = var.maximum_throughput_units
-  zone_redundant           = var.zone_redundant
+  maximum_throughput_units = var.maximum_throughput_units  
   tags                     = local.tags
   dynamic "network_rulesets" {
     for_each = var.network_rulesets != null ? [var.network_rulesets] : []
@@ -54,8 +53,7 @@ resource "azurerm_eventhub" "eventhub" {
   ]
   for_each            = var.hubs_parameters != null ? { for k, v in var.hubs_parameters : k => v if v != null } : {}
   name                = each.value.name
-  namespace_name      = azurerm_eventhub_namespace.eventhub_ns.name
-  resource_group_name = var.resource_group_name
+  namespace_id      = azurerm_eventhub_namespace.eventhub_ns.id  
   partition_count     = each.value.partition_count
   message_retention   = each.value.message_retention
   dynamic "capture_description" {

@@ -10,6 +10,7 @@ Module developed to standardize the EventHub namespace and Hub creation.
 | Module Version | Terraform Version | AzureRM Version |
 |----------------|-------------------| --------------- |
 | v1.0.0         | v1.6.6            | 3.86.0          |
+| v1.1.0         | v1.11.3           | 4.26.0          |
 
 ## Specifying a version
 
@@ -71,7 +72,6 @@ output "evh_hubs" {
 | dedicated_cluster_id | specifies the id of the eventhub dedicated cluster where this namespace should created | `string` | n/a | No |
 | identity | block as defined below | `object()` | n/a | No |
 | maximum_throughput_units | specifies the maximum number of throughput units when auto inflate is enabled | `number` | `1` | No |
-| zone_redundant | specifies if the eventhub namespace should be zone redundant  | `bool` | `false` | No |
 | tags | tags for the resource | `map(string)` | `{}` | No |
 | network_rulesets | block as defined below | `object()` | n/a | No |
 | local_authentication_enabled | is sas authentication enabled for the eventhub namespace | `bool` | `true` | No |
